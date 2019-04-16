@@ -1,0 +1,12 @@
+﻿@page
+@model AddModel
+@{
+    ViewData["Title"] = "Add Testimonial";
+    ViewData["ActiveLink"] = "/testimonials";
+}
+<section class="page-content">
+    <h1 class="page-content__header">Add New Testimonial</h1>
+    <div class="page-content__content">
+        <partial name="_TestimonialItemPartial" for="Model" />
+    </div>
+</section>

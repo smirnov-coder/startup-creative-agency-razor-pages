@@ -1,0 +1,22 @@
+/// <reference path="../../../styles/admin/admin" />
+
+.brand-list {
+    margin: 0;
+    padding: 0;
+
+    &__items {
+        margin: 15px 0 0 0;
+    }
+
+    &__item {
+        margin: 0 0 $gutter-width 0;
+
+        &:last-child {
+            margin: 0;
+        }
+    }
+
+    &__add {
+        margin: $gutter-width 0 0 0;
+    }
+}

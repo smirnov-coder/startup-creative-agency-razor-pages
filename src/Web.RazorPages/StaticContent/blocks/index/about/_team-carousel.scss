@@ -1,0 +1,27 @@
+/// <reference path="../../../styles/index/index" />
+
+.team-carousel {
+    position: relative;
+
+    &__nav {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+
+        &.disabled {
+            display: none;
+        }
+
+        &-button {
+
+            &-prev {
+                float: left;
+            }
+
+            &-next {
+                float: right;
+            }
+        }
+    }
+}

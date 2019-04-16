@@ -1,0 +1,12 @@
+﻿@page
+@model AddModel
+@{
+    ViewData["Title"] = "Add Blog Post";
+    ViewData["ActiveLink"] = "/blog";
+}
+<section class="page-content">
+    <h1 class="page-content__header">Add New Blog Post</h1>
+    <div class="page-content__content">
+        <partial name="_BlogPostItemPartial" for="Model" />
+    </div>
+</section>

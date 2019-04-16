@@ -1,0 +1,23 @@
+/// <reference path="../../../styles/admin/admin" />
+
+.blog-post-item {
+    padding: 0;
+
+    &__img {
+        padding: 0;
+        margin: 0;
+        width: $blog-post-item-img-width;
+        height: $blog-post-item-img-height;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    &__info {
+        margin: 0 0 0 30px;
+        overflow: hidden;
+    }
+
+    &__view, &__edit, &__delete {
+        margin: 0 5px 0 0;
+    }
+}

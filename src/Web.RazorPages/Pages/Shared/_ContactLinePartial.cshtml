@@ -1,0 +1,22 @@
+﻿@model ContactInfo
+
+@if (Model != null)
+{
+    <article class="contacts__line">
+        <i class="contacts__icon @ViewData[Model.Name]?.ToString()"></i>
+        <h4 class="contacts__caption">@Model.Caption</h4>
+        <address class="contacts__text">
+            @if (Model.Values != null && Model.Values.Any())
+            {
+                for (int index = 0; index < Model.Values.Count; index++)
+                {
+                    @Model.Values[index];
+                    if (index < Model.Values.Count - 1)
+                    {
+                        <br />
+                    }
+                }
+            }
+        </address>
+    </article>
+}

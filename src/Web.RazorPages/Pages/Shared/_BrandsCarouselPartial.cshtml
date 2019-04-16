@@ -1,0 +1,19 @@
+﻿@model IEnumerable<Brand>
+@{ 
+    string imageClass = "brands-carousel__img";
+}
+<section class="clients-section__brands">
+    <h3 class="sr-only">Brands</h3>
+    <div class="brands-carousel owl-carousel">
+        @if (Model != null && Model.Any())
+        {
+            foreach (Brand brand in Model)
+            {
+                <div class="brands-carousel__item">
+                    <h4 class="sr-only">@brand?.Name</h4>
+                    <img src="@Url.Content(brand?.ImagePath)" class="@imageClass" alt="@brand?.Name" />
+                </div>
+            }
+        }
+    </div>
+</section>

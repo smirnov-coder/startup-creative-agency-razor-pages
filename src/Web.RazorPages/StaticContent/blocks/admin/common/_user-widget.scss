@@ -1,0 +1,64 @@
+﻿/// <reference path="../../../styles/admin/admin" />
+
+.user-widget {
+    display: flex;
+    flex-direction: row;
+
+    &__img {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+
+        &--hidden {
+            visibility: hidden;
+
+            &::after {
+                font-family: "FontAwesome";
+                content: "\f007"; // FontAwesome 4.7.x User Icon
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                visibility: visible;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: $secondary-color;
+                font-size: px-to-rem(35px);
+            }
+        }
+
+        &-holder {
+            position: relative;
+            display: block;
+            @include circle($user-widget-img-size);
+            overflow: hidden;
+            background-color: $light-grey-color;
+        }
+    }
+
+    &__info {
+        margin: 0 0 0 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: $user-widget-img-size;
+    }
+
+    &__user-name {
+        color: $white-color;
+    }
+
+    &__logout {
+        padding: 3px 8px;
+
+        &:hover {
+            background-color: $white-color;
+        }
+    }
+}

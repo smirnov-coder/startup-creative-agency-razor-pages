@@ -1,0 +1,53 @@
+/// <reference path="../../styles/index/index" />
+
+.blog-post-preview {
+
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+
+        &-holder {
+            height: $blog-post-preview-height - $gutter-width;
+
+            @media (min-width: ($blog-post-preview-height + $gutter-width)) {
+                height: $blog-post-preview-height;
+            }
+        }
+    }
+
+    &__content {
+        margin: 0;
+        max-height: $blog-post-preview-height;
+        display: flex;
+        flex-direction: column;
+
+        @media (max-width: $screen-sm-max) {
+            margin-top: $gutter-width;
+        }
+    }
+
+    &__text {
+        margin: $gutter-width 0 0 0;
+        padding: 0;
+        overflow: hidden;
+        @include font($family: $text-font-family,
+            $size: px-to-rem(14px),
+            $weight: map-get($font-weights, 'normal'),
+            $line-height: $large-line-height,
+            $color: $primary-color
+        );
+    }
+
+    &__button {
+        margin: $gutter-width 0 0 0;
+        @include font($family: $text-font-family,
+            $size: px-to-rem(13px),
+            $weight: map-get($font-weights, 'bold'));
+        letter-spacing: px-to-rem(1.3px);
+        text-transform: uppercase;
+        flex: none;
+        align-self: flex-start;
+    }
+}

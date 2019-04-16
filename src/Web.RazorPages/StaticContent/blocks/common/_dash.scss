@@ -1,0 +1,23 @@
+/// <reference path="../../styles/common/common" />
+
+.dash {
+    margin: 0 auto;
+    padding: 0;
+    width: 50px;
+    border-top: 2px solid;
+
+    &--color {
+        
+        &-grey {
+            border-color: $primary-color;
+        }  
+
+        &-white {
+            border-color: $white-color;
+        }
+    }
+
+    &--size-long {
+        width: 100%;
+    }
+}

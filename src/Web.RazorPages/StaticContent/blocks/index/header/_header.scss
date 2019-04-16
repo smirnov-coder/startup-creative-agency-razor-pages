@@ -1,0 +1,64 @@
+/// <reference path="../../../styles/index/index" />
+
+.header {
+    height: 100vh;
+    background-image: url('../../images/header-bg.jpeg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    &__top-content {
+        margin: 0;
+    }
+
+    &__center-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 100%;
+    }
+
+    &__title {
+        margin: 0;
+        padding: 0;
+        @include font(
+            $family: $heading-font-family, 
+            $size: px-to-rem(48px),
+            $weight: map-get($font-weights, 'semi-bold'),
+            $line-height: $small-line-height,
+            $color: $white-color
+        );
+        text-transform: uppercase;
+
+        @media (max-width: 479px) {
+            font-size: px-to-rem(40px)
+        }
+    }
+
+    &__subtitle {
+        margin: 20px 0 0 0;
+        padding: 0;
+        @include font(
+            $family: $text-font-family, 
+            $size: px-to-rem(20px), 
+            $weight: map-get($font-weights, 'normal'),
+            $color: $white-color
+        );
+
+        @media (max-width: 479px) {
+            font-size: px-to-rem(18px)
+        }
+    }
+
+    &__button {
+        margin: 50px 0 0 0;
+        @include font(
+            $family: $heading-font-family, 
+            $size: px-to-rem(16px), 
+            $weight: map-get($font-weights, 'semi-bold')
+        );
+        text-transform: uppercase;
+    }
+}

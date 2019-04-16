@@ -1,0 +1,87 @@
+/// <reference path="../../../styles/index/index" />
+
+.blog-post-preview-header {
+    padding: 0;
+    height: $blog-post-preview-header-date-size;
+    display: flex;
+    flex: none;
+
+    &__date {
+        margin: 0;
+        padding: 0;
+        @include square($blog-post-preview-header-date-size);
+        border: 2px solid $primary-color;
+        display: flex;
+        flex: none;
+        flex-direction: column;
+        justify-content: center;
+        line-height: 1.3;
+    }
+
+    &__day {
+        margin: 0;
+        padding: 0;
+        @include font(
+            $family: $heading-font-family,
+            $size: px-to-rem(24px),
+            $weight: map-get($font-weights, 'bold'),
+            $color: $primary-color
+        );
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    &__month {
+        margin: 0;
+        padding: 0;
+        @include font(
+            $family: $heading-font-family,
+            $size: px-to-rem(14px),
+            $weight: map-get($font-weights, 'bold'),
+            $color: $primary-color
+        );
+        letter-spacing: px-to-rem(1.4px);
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    &__meta {
+        margin: 0;
+        padding: 0 0 0 $gutter-width;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    &__title {
+        margin: 0;
+        padding: 0;
+        @include font(
+            $family: $heading-font-family,
+            $size: px-to-rem(16px),
+            $weight: map-get($font-weights, 'semi-bold')
+        );
+        display: block;
+        text-transform: uppercase;
+        @include text-crop-ellipsis();
+        cursor: pointer;
+    }
+
+    &__author {
+        margin: 10px 0 0 0;
+        padding: 0;
+        @include font(
+            $family: $text-font-family,
+            $size: px-to-rem(13px),
+            $weight: map-get($font-weights, 'normal'),
+            $color: $secondary-color
+        );
+        font-style: italic;
+        @include text-crop-ellipsis();
+
+        &-name, &-group {
+            cursor: pointer;
+        }
+    }
+}

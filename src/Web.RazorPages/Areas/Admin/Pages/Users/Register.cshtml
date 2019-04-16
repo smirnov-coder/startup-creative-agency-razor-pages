@@ -1,0 +1,45 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register User";
+    ViewData["ActiveLink"] = "/users";
+}
+<section class="page-content">
+    <h1 class="page-content__header">Register New User</h1>
+    <div class="page-content__content">
+        <div class="user-item-form">
+            <form method="post">
+                <div class="user-item-form__line form-group">
+                    <label asp-for="NewUser.UserName"></label>
+                    <input asp-for="NewUser.UserName" class="user-item-form__user-name form-control" />
+                    <span asp-validation-for="NewUser.UserName"></span>
+                </div>
+                <div class="user-item-form__line form-group">
+                    <label asp-for="NewUser.Password"></label>
+                    <input asp-for="NewUser.Password" class="user-item-form__password form-control" />
+                    <span asp-validation-for="NewUser.Password"></span>
+                </div>
+                <div class="user-item-form__line form-group">
+                    <label asp-for="NewUser.ConfirmPassword"></label>
+                    <input asp-for="NewUser.ConfirmPassword" class="user-item-form__confirm form-control" />
+                    <span asp-validation-for="NewUser.ConfirmPassword"></span>
+                </div>
+                <div class="user-item-form__line form-group">
+                    <label asp-for="NewUser.Email"></label>
+                    <input asp-for="NewUser.Email" class="user-item-form__email form-control" />
+                    <span asp-validation-for="NewUser.Email"></span>
+                </div>
+                <div class="user-item-form__line form-group">
+                    <label asp-for="NewUser.Role"></label>
+                    <select asp-for="NewUser.Role" asp-items="@Model.UserRoles" class="user-item-form__role form-control">
+                        <option value="">--- Choose role ---</option>
+                    </select>
+                    <span asp-validation-for="NewUser.Role"></span>
+                </div>
+                <div class="user-item-form__line">
+                    <button type="submit" class="user-item-form__submit button button--size-sm">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,52 @@
+/// <reference path="../../styles/common/common" />
+
+.button {
+    padding: $default-button-padding;
+    color: $primary-color;
+    background-color: $white-color;
+    border: 1px solid $primary-color;
+    display: inline-block;
+    text-align: center;
+
+    &:hover, &:focus, &:active {
+        outline: none;
+        box-shadow: none;
+        text-decoration: none;
+        color: $white-color;
+        background-color: $accent-color;
+        border-color: $accent-color;
+    }
+
+    &--color-white {
+        color: $white-color;
+        background-color: transparent;
+        border-color: $white-color;
+
+        &:hover, &:focus, &:active {
+            background-color: $white-color;
+            color: $accent-color;
+            border-color: $white-color;
+        }
+    }
+
+    &--border-thick {
+        border-width: 2px;
+    }
+
+    &--size-sm {
+        padding: $small-button-padding;
+    }
+
+    &--style-link {
+        padding: 0;
+        border: none;
+        background: none;
+        outline: none;
+        @extend .custom-link;
+
+        &:hover, &:focus, &:active {
+            background: none;
+            border: none;
+        }
+    }
+}

@@ -1,0 +1,59 @@
+﻿@model IList<WorkExample>
+
+@if (Model != null && Model.Any())
+{
+    @foreach (var workExample in Model)
+    {
+        <div class="list-item work-example-item work-example-list__item panel panel-default">
+            <div class="list-item__header panel-heading">
+                Work Example, ID: <span class="work-example-item__id">@workExample?.Id</span>
+            </div>
+            <div class="list-item__content panel-body">
+                <img src="@Url.Content(workExample?.ImagePath)" alt="@workExample?.Name"
+                         class="work-example-item__img" />
+                <div class="work-example-item__info">
+                    <p class="list-item__content-line">
+                        <span class="list-item__content-line-heading">Name: </span>
+                        <span class="work-example-item__name">@workExample?.Name</span>
+                    </p>
+                    <p class="list-item__content-line">
+                        <span class="list-item__content-line-heading">Category: </span>
+                        <span class="work-example-item__category">@workExample?.Category</span>
+                    </p>
+                    <p class="list-item__content-line list-item__content-line--crop-with-dots">
+                        <span class="list-item__content-line-heading">Description: </span>
+                        <span class="work-example-item__description">@workExample?.Description</span>
+                    </p>
+                    <p class="list-item__content-line">
+                        <span class="list-item__content-line-heading">Created on </span>
+                        <span class="work-example-item__created-on">@workExample?.CreatedOn</span>
+                        <span class="list-item__content-line-heading"> By </span>
+                        <span class="work-example-item__created-by">
+                            @DomainUserHelper.GetUserInfoString(workExample?.CreatedBy)
+                        </span>
+                    </p>
+                    <p class="list-item__content-line">
+                        <span class="list-item__content-line-heading">Last updated on </span>
+                        <span class="work-example-item__last-updated-on">@workExample?.LastUpdatedOn</span>
+                        <span class="list-item__content-line-heading"> By </span>
+                        <span class="work-example-item__last-updated-by">
+                            @DomainUserHelper.GetUserInfoString(workExample?.LastUpdatedBy)
+                        </span>
+                    </p>
+                </div>
+            </div>
+            <div class="list-item__footer panel-footer">
+                <form method="post" asp-page-handler="Delete" asp-route-id="@workExample?.Id" class="work-example-item__form">
+                    <button type="button" asp-area="" asp-controller="WorkExamples" asp-action="GetByIdAsync" asp-route-id="@workExample?.Id"
+                            formmethod="get" class="work-example-item__view button button--size-sm">
+                        View
+                    </button>
+                    <a asp-page="/works/edit" asp-route-id="@workExample?.Id" class="work-example-item__edit button button--size-sm">Edit</a>
+                    <button type="submit" class="work-example-item__delete button button--size-sm" onclick="return confirm('Are you sure you want to proceed?');">
+                        Delete
+                    </button>
+                </form>
+            </div>
+        </div>
+    }
+}

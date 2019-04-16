@@ -1,0 +1,65 @@
+/// <reference path="../../../styles/admin/admin" />
+
+.user-item {
+    padding: 0;
+    margin: 0;
+
+    &__photo {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+
+        &--hidden {
+            visibility: hidden;
+
+            &::after {
+                font-family: "FontAwesome";
+                content: "\f007"; // FontAwesome 4.7.x User Icon
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                visibility: visible;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: $secondary-color;
+                font-size: px-to-rem(160px);
+            }
+        }
+
+        &-holder {
+            position: relative;
+            display: block;
+            height: $profile-photo-height;
+            width: $profile-photo-width;
+            overflow: hidden;
+            background-color: $light-grey-color;
+        }
+    }
+
+    &__info {
+        margin: 0 0 0 30px;
+    }
+
+    &__form {
+        margin: 0;
+        padding: 0;
+    }
+
+    &__checkbox {
+        display: inline-block;
+
+        &-label {
+            font-weight: map-get($font-weights, 'medium');
+        }
+    }
+
+    &__checkbox, &__update, &__delete {
+        margin: 0 5px 0 0;
+    }
+}

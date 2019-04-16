@@ -1,0 +1,17 @@
+/// <reference path="../../../styles/admin/admin" />
+
+.profile {
+    padding: 0;
+    
+    &__personal-info {
+        margin: 0;
+    }
+
+    &__social-links {
+        margin: $gutter-width 0 0 0;
+    }
+
+    &__save {
+        margin: $gutter-width 0 0 0;
+    }
+}

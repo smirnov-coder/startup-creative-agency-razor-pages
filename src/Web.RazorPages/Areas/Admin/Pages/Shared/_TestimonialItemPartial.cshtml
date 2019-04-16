@@ -1,0 +1,25 @@
+﻿@model TestimonialViewModel
+
+<div class="testimonial-item-form">
+    <form method="post">
+        <input asp-for="Id" class="testimonial-item-form__id" />
+        <div class="testimonial-item-form__line form-group">
+            <label asp-for="Author"></label>
+            <input asp-for="Author" class="testimonial-item-form__author form-control" />
+            <span asp-validation-for="Author"></span>
+        </div>
+        <div class="testimonial-item-form__line form-group">
+            <label asp-for="Company"></label>
+            <input asp-for="Company" class="testimonial-item-form__company form-control" />
+            <span asp-validation-for="Company"></span>
+        </div>
+        <div class="testimonial-item-form__line form-group">
+            <label asp-for="Text"></label>
+            <textarea asp-for="Text" class="testimonial-item-form__text form-control"></textarea>
+            <span asp-validation-for="Text"></span>
+        </div>
+        <div class="testimonial-item-form__line">
+            <button type="submit" class="testimonial-item-form__submit button button--size-sm">Submit</button>
+        </div>
+    </form>
+</div>

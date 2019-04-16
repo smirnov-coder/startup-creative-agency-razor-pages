@@ -1,0 +1,92 @@
+﻿@page
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Startup RazorPages Index</title>
+    <link rel="apple-touch-icon" sizes="180x180" asp-href-include="~/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" asp-href-include="~/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" asp-href-include="~/favicon-16x16.png" />
+    <link rel="manifest" asp-href-include="~/site.webmanifest" />
+    <link asp-href-include="~/lib/css/vendor.bundle.min.css" rel="stylesheet" />
+    <environment include="Production">
+        <link asp-href-include="~/css/index.bundle.min.css" rel="stylesheet" />
+    </environment>
+</head>
+<body class="body">
+    @* Header *@
+    <header class="header body__line" id="home">
+        <nav class="custom-navbar custom-navbar--position-fixed-top header__top-content">
+            <div class="container">
+                <div class="custom-navbar__content">
+                    <div class="custom-navbar__static">
+                        <a asp-page="/" class="logo custom-navbar__logo custom-link">
+                            <h2 class="logo__text">Startup</h2>
+                        </a>
+                        <button type="button" class="custom-navbar__toggler" data-toggle="collapse" data-target="#custom-navbar-collapse">
+                            <i class="fa fa-bars fa-2x"></i>
+                        </button>
+                    </div>
+                    <div class="custom-navbar__collapse collapse" id="custom-navbar-collapse">
+                        <ul class="custom-nav custom-navbar__nav">
+                            <li class="custom-nav__item"><a href="#home" class="custom-nav__link">Home</a></li>
+                            <li class="custom-nav__item"><a href="#services" class="custom-nav__link">Services</a></li>
+                            <li class="custom-nav__item"><a href="#about" class="custom-nav__link">About</a></li>
+                            <li class="custom-nav__item"><a href="#works" class="custom-nav__link">Works</a></li>
+                            <li class="custom-nav__item"><a href="#blog" class="custom-nav__link">Blog</a></li>
+                            <li class="custom-nav__item"><a href="#clients" class="custom-nav__link">Clients</a></li>
+                            <li class="custom-nav__item"><a href="#contact" class="custom-nav__link">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <section class="header__center-content container">
+            <h1 class="header__title">Welcome To Startup</h1>
+            <h2 class="header__subtitle">Your Favourite Creative Agency Template</h2>
+            <a href="#services" class="button button--color-white button--border-thick header__button">Get Started</a>
+        </section>
+    </header>
+    @* Services *@
+    @await Component.InvokeAsync("ServicesSection")
+    @* About *@
+    @await Component.InvokeAsync("AboutSection")
+    @* Works *@
+    @await Component.InvokeAsync("WorksSection")
+    @* Parallax *@
+    <section class="parallax-section body__line">
+        <h2 class="sr-only">Cooperation Invitation</h2>
+        <div class="parallax-section__overlay">
+            <div class="section container">
+                <h3 class="parallax-section__title">
+                    Do you like <span class="text-nowrap">OUR WORK</span> <span class="text-nowrap">so far?</span><br />
+                    Let's talk about <span class="text-nowrap">YOUR PROJECT</span>!
+                </h3>
+                <a href="#contact" class="parallax-section__button button button--color-white button--border-thick">
+                    Get in Touch
+                </a>
+            </div>
+        </div>
+    </section>
+    @* Blog *@
+    @await Component.InvokeAsync("BlogSection")
+    @* Clients *@
+    @await Component.InvokeAsync("ClientsSection")
+    @* Contact *@
+    @await Component.InvokeAsync("ContactSection")
+    @* Footer *@
+    @await Component.InvokeAsync("FooterSection")
+    <script asp-src-include="~/lib/js/vendor.bundle.min.js"></script>
+    <environment include="Development">
+        <script asp-src-include="~/js/index.bundle.js"></script>
+    </environment>
+    <environment include="Production">
+        <script asp-src-include="~/js/index.bundle.min.js"></script>
+    </environment>
+</body>
+</html>

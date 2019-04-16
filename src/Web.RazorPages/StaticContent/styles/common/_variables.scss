@@ -1,0 +1,41 @@
+$default-font-size: 16px;
+$small-line-height: 1.1;
+$default-line-height: 1.42857143; // Значение line-height в Бутстрап 3.
+$large-line-height: 1.72;
+
+$heading-font-family: 'Montserrat', sans-serif;
+$text-font-family: 'Roboto Slab', serif;
+
+$primary-color: #555;
+$secondary-color: #777;
+$accent-color: #c0301c;
+$white-color: #fff;
+$black-color: #000;
+$light-grey-color: #ddd;
+$section-optional-bg-color: #f8f8f8;
+
+$gutter-width: 30px;
+
+$screen-xs-max: 767px;
+$screen-sm-min: 768px;
+$screen-sm-max: 991px;
+$screen-md-min: 992px;
+$screen-md-max: 1199px;
+$screen-lg-min: 1200px;
+
+$font-weights: (
+    'thin': 100,
+    'extra-light': 200,
+    'light': 300,
+    'normal': 400,
+    'medium': 500,
+    'semi-bold': 600,
+    'bold': 700,
+    'extra-bold': 800,
+    'black': 900
+);
+
+$default-button-padding: 15px 30px;
+$small-button-padding: 10px 25px;
+
+$text-area-min-height: 100px;

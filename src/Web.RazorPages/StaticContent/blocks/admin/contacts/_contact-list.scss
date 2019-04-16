@@ -1,0 +1,21 @@
+/// <reference path="../../../styles/admin/admin" />
+
+.contact-list {
+    padding: 0;
+
+    &__items {
+        margin: 0;
+    }
+
+    &__item {
+        margin: 0 0 $gutter-width 0;
+
+        &:last-child {
+            margin: 0;
+        }
+    }
+
+    &__save {
+        margin: $gutter-width 0 0 0;
+    }
+}

@@ -1,0 +1,26 @@
+/// <reference path="../../../styles/index/index" />
+
+.about-us-info {
+    padding: 0;
+
+    &__item {
+        margin-bottom: 0;
+        @include font(
+            $family: $text-font-family,
+            $size: px-to-rem(14px),
+            $weight: map-get($font-weights, 'normal'),
+            $line-height: $large-line-height,
+            $color: $primary-color
+        );
+
+        @media (max-width: $screen-xs-max) {
+            &:first-of-type {
+                margin-bottom: ($gutter-width / 2);
+            } 
+        }
+        
+        @media (min-width: $screen-sm-min) {
+            margin-bottom: 0;
+        } 
+    }
+}

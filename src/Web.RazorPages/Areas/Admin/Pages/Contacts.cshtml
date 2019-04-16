@@ -1,0 +1,26 @@
+﻿@page
+@model ContactsModel
+@{
+    ViewData["Title"] = "Contacts";
+    ViewData["ActiveLink"] = "/contacts";
+}
+<section class="page-content">
+    <h1 class="page-content__header">Company Contacts</h1>
+    <div class="page-content__content container-fluid">
+        <div class="contact-list row">
+            <form id="contactsForm" method="post" class="form-horizontal">
+                <div class="contact-list__items">
+                    @if (Model?.Contacts != null && Model.Contacts.Any())
+                    {
+                        for (int index = 0; index < Model.Contacts.Count; index++)
+                        {
+                            <partial name="_ContactItemPartial" for="@Model.Contacts[index]" />
+                        }
+                    }
+                    <partial name="_SocialLinksPartial" for="SocialLinks" />
+                </div>
+                <button type="submit" class="contact-list__save button button--size-sm">Save</button>
+            </form>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,41 @@
+﻿@page "{id:int}"
+@model MessageModel
+@{
+    ViewData["Title"] = "Message";
+    ViewData["ActiveLink"] = "/messages";
+}
+<section class="page-content">
+    <h1 class="page-content__header">Message, ID: @Model.Message.Id</h1>
+    <div class="page-content__content">
+        <div class="message">
+            <div class="message__line">
+                <label asp-for="Message.Name" class="control-label">Name: </label>
+                <span class="message__name">@Model.Message.Name</span>
+            </div>
+            <div class="message__line">
+                <label asp-for="Message.Company">Company: </label>
+                <span class="message__company">@Model.Message.Company</span>
+            </div>
+            <div class="message__line">
+                <label asp-for="Message.Email">E-mail: </label>
+                <span class="message__email">@Model.Message.Email</span>
+            </div>
+            <div class="message__line">
+                <label asp-for="Message.IPAddress">IP Address: </label>
+                <span>@Model.Message.IPAddress</span>
+            </div>
+            <div class="message__line">
+                <label asp-for="Message.CreatedOn">Send Date: </label>
+                <span>@Model.Message.CreatedOn</span>
+            </div>
+            <div class="message__line">
+                <label asp-for="Message.Subject">Subject: </label>
+                <span class="message__subject">@Model.Message.Subject</span>
+            </div>
+            <div class="message__line">
+                <label asp-for="Message.Text">Text: </label>
+                <span class="message__text">@Model.Message.Text</span>
+            </div>
+        </div>
+    </div>
+</section>

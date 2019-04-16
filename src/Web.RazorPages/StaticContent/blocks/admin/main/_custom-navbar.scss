@@ -1,0 +1,9 @@
+﻿/// <reference path="../../../styles/admin/admin" />
+
+.custom-navbar {
+    border-right: 1px solid $primary-color;
+
+    &__nav {
+        margin: 0;
+    }
+}

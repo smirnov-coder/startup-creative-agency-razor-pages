@@ -1,0 +1,44 @@
+/// <reference path="../../styles/common/common" />
+
+.blog-post {
+
+    &__title {
+        margin: 0;
+        padding: 0;
+        @include font(
+            $family: $heading-font-family,
+            $size: px-to-rem(20px),
+            $weight: map-get($font-weights, 'semi-bold'),
+            $color: $primary-color
+        );
+        text-transform: uppercase;
+    }
+
+    &__meta {
+        margin: 10px 0 0 0;
+        padding: 0;
+        @include font(
+            $family: $text-font-family,
+            $size: px-to-rem(14px),
+            $weight: map-get($font-weights, 'normal'),
+            $color: $secondary-color
+        );
+        font-style: italic;
+    }
+
+    &__content {
+        margin: 15px 0 0 0;
+        padding: 0;
+        line-height: $large-line-height;
+    }
+
+    /*&__button {
+        @include font(
+            $family: $text-font-family,
+            $size: px-to-rem(13px),
+            $weight: map-get($font-weights, 'normal')
+        );
+        text-transform: uppercase;
+        letter-spacing: px-to-rem(0.35px);
+    }*/
+}

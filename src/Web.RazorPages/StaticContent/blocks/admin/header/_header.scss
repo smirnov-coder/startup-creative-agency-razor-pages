@@ -1,0 +1,11 @@
+﻿/// <reference path="../../../styles/admin/admin" />
+
+.header {
+    background-color: $accent-color;
+    border-bottom: 1px solid $primary-color;
+    display: flex;
+    flex-shrink: 0;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}

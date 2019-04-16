@@ -1,0 +1,18 @@
+﻿/// <reference path="../../../styles/admin/admin" />
+
+.message-row {
+
+    &__is-read {
+        cursor: pointer;
+    }
+
+    &--unread {
+        font-weight: map-get($font-weights, 'bold');
+    }
+
+    &__from, &__subject, &__text {
+        width: auto;
+        max-width: 350px;
+        @include text-crop-ellipsis();
+    }
+}

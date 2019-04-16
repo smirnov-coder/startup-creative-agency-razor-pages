@@ -1,0 +1,15 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using StartupCreativeAgency.Infrastructure
+@inject SignInManager<UserIdentity> _signInManager;
+
+<header class="header">
+    <a asp-area="" asp-page="/Index" class="logo custom-link header__left-content">
+        <h1 class="logo__text">Startup</h1>
+    </a>
+    @if (_signInManager.IsSignedIn(User))
+    {
+        <div class="header__right-content">
+            @await Component.InvokeAsync("UserWidget")
+        </div>
+    }
+</header>

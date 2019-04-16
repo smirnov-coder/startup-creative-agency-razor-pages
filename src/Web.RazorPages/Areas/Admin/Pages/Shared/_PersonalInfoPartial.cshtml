@@ -1,0 +1,62 @@
+﻿@model PersonalInfoViewModel
+@{ 
+    string photoUrl = Url.Content(Model?.PhotoFilePath);
+    string hiddenClass = "personal-info__photo--hidden";
+}
+<div class="list-item personal-info profile__personal-info panel panel-default">
+    <div class="list-item__header panel-heading">
+        Personal Information
+    </div>
+    <div class="list-item__content panel-body">
+        <input type="hidden" asp-for="PhotoFilePath" />
+        <div class="personal-info__photo-holder">
+            <img src="@photoUrl" alt="@($"{Model?.FirstName} {Model?.LastName}")"
+                 class="personal-info__photo @(string.IsNullOrWhiteSpace(photoUrl) ? hiddenClass : null)" />
+        </div>
+        <div class="personal-info__description">
+            <div class="list-item__content-line form-group">
+                <label asp-for="UserName" class="list-item__content-line-heading control-label col-sm-2"></label>
+                <div class="col-sm-10">
+                    <input type="hidden" asp-for="UserName" />
+                    <p class="personal-info__user-name form-control-static">@Model?.UserName</p>
+                    <span asp-validation-for="UserName"></span>
+                </div>
+            </div>
+            <div class="list-item__content-line form-group">
+                <label asp-for="FirstName" class="list-item__content-line-heading control-label col-sm-2"></label>
+                <div class="col-sm-10">
+                    <input asp-for="FirstName" class="personal-info__first-name form-control" />
+                    <span asp-validation-for="FirstName"></span>
+                </div>
+            </div>
+            <div class="list-item__content-line form-group">
+                <label asp-for="LastName" class="list-item__content-line-heading control-label col-sm-2"></label>
+                <div class="col-sm-10">
+                    <input asp-for="LastName" class="personal-info__last-name form-control" />
+                    <span asp-validation-for="LastName"></span>
+                </div>
+            </div>
+            <div class="list-item__content-line form-group">
+                <label asp-for="JobPosition" class="list-item__content-line-heading control-label col-sm-2"></label>
+                <div class="col-sm-10">
+                    <input asp-for="JobPosition" class="personal-info__job form-control" />
+                    <span asp-validation-for="JobPosition"></span>
+                </div>
+            </div>
+            <div class="list-item__content-line form-group">
+                <label asp-for="Image" class="list-item__content-line-heading control-label col-sm-2"></label>
+                <div class="col-sm-10">
+                    <div class="custom-file-input input-group">
+                        <input type="text" class="form-control custom-file-input__text" readonly />
+                        <span class="input-group-btn">
+                            <label class="btn btn-default">
+                                Browse<input asp-for="Image" class="custom-file-input__upload personal-info__upload" >
+                            </label>
+                        </span>
+                    </div>
+                    <span asp-validation-for="Image"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

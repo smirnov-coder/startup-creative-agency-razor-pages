@@ -1,0 +1,34 @@
+﻿@model BlogPost
+
+<article class="blog-post-preview row">
+    <div class="blog-post-preview__img-holder col-md-5">
+        <img src="@Url.Content(Model?.ImagePath)" class="blog-post-preview__img" alt="@Model?.Title" />
+    </div>
+    <div class="blog-post-preview__content col-md-7">
+        <header class="blog-post-preview-header">
+            <div class="blog-post-preview-header__date">
+                <p class="blog-post-preview-header__day">@Model?.CreatedOn?.Day</p>
+                <month number="@Model?.CreatedOn?.Month" class="blog-post-preview-header__month" />
+            </div>
+            <div class="blog-post-preview-header__meta">
+                <h4 class="blog-post-preview-header__title custom-link">@Model?.Title</h4>
+                <div class="blog-post-preview-header__author">
+                    By&nbsp;
+                    <span class="blog-post-preview-header__author-name custom-link custom-link--color-secondary">
+                        @DomainUserHelper.GetFullName(Model?.CreatedBy)
+                    </span>
+                    &nbsp;in&nbsp;
+                    <span class="blog-post-preview-header__author-group custom-link custom-link--color-secondary">
+                        @Model?.Category
+                    </span>
+                </div>
+            </div>
+        </header>
+        @* По-хорошему, содержимое блог поста должно быть html-разметкой и создаваться с помощью WYSIWYG-редактора. Пока оставим так. *@
+        <div class="blog-post-preview__text">@Html.Raw(Model?.Content)</div>
+        <button class="blog-post-preview__button button button--style-link custom-link--color-secondary"
+                asp-controller="BlogPosts" asp-action="GetByIdAsync" asp-route-id="@Model?.Id">
+            Read More
+        </button>
+    </div>
+</article>

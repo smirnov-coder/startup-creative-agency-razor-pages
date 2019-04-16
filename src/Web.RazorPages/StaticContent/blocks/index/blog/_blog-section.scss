@@ -1,0 +1,12 @@
+/// <reference path="../../../styles/index/index" />
+
+.blog-section {
+
+    &__header {
+        margin: 0;
+    }
+
+    &__content {
+        margin: $content-margin 0 0 0;
+    }
+}

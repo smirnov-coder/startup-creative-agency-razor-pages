@@ -1,0 +1,12 @@
+﻿@page
+@model AddModel
+@{
+    ViewData["Title"] = "Add Brand";
+    ViewData["ActiveLink"] = "/brands";
+}
+<section class="page-content">
+    <h1 class="page-content__header">Add New Brand</h1>
+    <div class="page-content__content">
+        <partial name="_BrandItemPartial" for="Model" />
+    </div>
+</section>

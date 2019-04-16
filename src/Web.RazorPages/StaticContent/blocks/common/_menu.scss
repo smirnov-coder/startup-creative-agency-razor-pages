@@ -1,0 +1,19 @@
+/// <reference path="../../styles/common/common" />
+
+.menu {
+    list-style-type: none;
+    padding: 0;
+
+    &__item {
+        display: block;
+    }
+
+    &--style-inline {
+        // Убирает пробел между инлайн-блоками.
+        display: inline-table;
+
+        & > .menu__item {
+            display: inline-block;
+        }
+    }
+}

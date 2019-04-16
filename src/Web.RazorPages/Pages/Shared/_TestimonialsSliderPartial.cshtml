@@ -1,0 +1,19 @@
+﻿@model IEnumerable<Testimonial>
+
+<section class="clients-section__testimonials">
+    <h3 class="sr-only">Testimonials</h3>
+    <div class="testimonials-slider owl-carousel">
+        @if (Model != null && Model.Any())
+        {
+            foreach (Testimonial testimonial in Model)
+            {
+                <div class="testimonial">
+                    <p class="testimonial__text">@testimonial?.Text</p>
+                    <h4 class="testimonial__author">
+                        @string.Format("{0}, {1}", testimonial?.Author, testimonial?.Company)
+                    </h4>
+                </div>
+            }
+        }
+    </div>
+</section>

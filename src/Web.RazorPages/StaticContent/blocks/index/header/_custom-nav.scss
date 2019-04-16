@@ -1,0 +1,41 @@
+/// <reference path="../../../styles/index/index" />
+
+.custom-nav {
+    @extend .menu;
+
+    @media (min-width: $screen-sm-min) {
+        // Убираем пробел между инлайн-блоками
+        display: table;
+    }
+
+    &__item {
+        margin: 0;
+        
+        @media (min-width: $screen-sm-min) {
+            display: inline-block;  
+        }
+    }
+
+    &__link {
+        display: block;
+        margin: 0;
+        padding: 5px;
+        @include font(
+            $family: $heading-font-family,
+            $size: px-to-rem(14px),
+            $weight: map-get($font-weights, 'semi-bold'),
+            $color: $white-color
+        );
+        letter-spacing: px-to-rem(0.35px);
+
+        @media (min-width: $screen-sm-min) {
+            padding: 5px ($gutter-width / 2);
+        }
+
+        &:hover, &:focus {
+            text-decoration: none;
+            background-color: $white-color;
+            color: $accent-color;
+        }
+    }
+}

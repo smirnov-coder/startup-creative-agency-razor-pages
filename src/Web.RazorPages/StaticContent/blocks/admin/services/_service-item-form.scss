@@ -1,0 +1,22 @@
+/// <reference path="../../../styles/admin/admin" />
+
+.service-item-form {
+    padding: 0;
+
+    &__line {
+        margin: 0 0 15px 0;
+
+        &:last-of-type {
+            margin: 0;
+        }
+    }
+
+    &__description {
+        resize: vertical;
+        min-height: $text-area-min-height;
+    }
+
+    &__submit {
+        margin: 15px 0 0 0;
+    }
+}

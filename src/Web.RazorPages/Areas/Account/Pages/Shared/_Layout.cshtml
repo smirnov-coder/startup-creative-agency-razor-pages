@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Startup Account @ViewData["Title"]</title>
+    <link asp-href-include="~/lib/css/vendor.bundle.min.css" rel="stylesheet" />
+    <environment include="Production">
+        <link asp-href-include="~/css/admin.bundle.min.css" rel="stylesheet" />
+    </environment>
+</head>
+<body class="body">
+    @* Header *@
+    <partial name="_AdminHeaderPartial" />
+    @* Main content *@
+    <section class="main">
+        <div class="main__content">@RenderBody()</div>
+    </section>
+    @* Footer *@
+    <partial name="_AdminFooterPartial" />
+
+    <script asp-src-include="~/lib/js/vendor.bundle.min.js"></script>
+    <environment include="Development">
+        <script asp-src-include="~/js/admin.bundle.js"></script>
+    </environment>
+    <environment include="Production">
+        <script asp-src-include="~/js/admin.bundle.min.js"></script>
+    </environment>
+</body>
+</html>

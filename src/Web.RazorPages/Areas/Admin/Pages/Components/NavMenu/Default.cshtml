@@ -1,0 +1,18 @@
+﻿@model NavMenuViewModel
+@{
+    string activeLink = ViewData["ActiveLink"]?.ToString()?.ToUpper();
+}
+<ul class="nav-menu custom-navbar__nav">
+    @foreach (var navLink in Model.NavLinks)
+    {
+        <li class="nav-menu__item @(navLink.Href.ToUpper() == activeLink ? "active" : "")">
+            <a asp-area="Admin" asp-page="@navLink.Href" class="nav-menu__link custom-link">
+                @navLink.Text
+                @if (navLink.Text == "Messages" && Model.NewMessagesCount > 0)
+                {
+                    <span class="badge nav-menu__badge">@(Model.NewMessagesCount > 99 ? "99+" : Model.NewMessagesCount.ToString())</span>
+                }
+            </a>
+        </li>
+    }
+</ul>

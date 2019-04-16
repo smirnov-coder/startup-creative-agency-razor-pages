@@ -1,0 +1,87 @@
+﻿@model DomainUser
+@{
+    bool isAdmin = User.IsInRole("Administrator");
+    bool isManagePage = ViewData["ManagePage"] != null ? true : false;
+    string photoUrl = Url.Content(Model?.Profile?.PhotoFilePath);
+    string hiddenClass = "user-item__photo--hidden";
+}
+<div class="list-item user-item user-list__item panel panel-default">
+    <div class="list-item__header panel-heading">
+        <span class="user-item__user-name">
+            @($"@{Model?.Identity?.UserName}")
+        </span>
+    </div>
+    <div class="list-item__content panel-body">
+        <div class="user-item__photo-holder">
+            <img src="@photoUrl" alt="@DomainUserHelper.GetFullName(Model)" 
+                 class="user-item__photo @(string.IsNullOrWhiteSpace(photoUrl) ? hiddenClass : null)" />
+        </div>
+        <div class="user-item__info">
+            <p class="list-item__content-line">
+                <span class="list-item__content-line-heading">First Name: </span>
+                <span class="user-item__first-name">@GetValue(Model?.Profile?.FirstName)</span>
+            </p>
+            <p class="list-item__content-line">
+                <span class="list-item__content-line-heading">Last Name: </span>
+                <span class="user-item__last-name">@GetValue(Model?.Profile?.LastName)</span>
+            </p>
+            <p class="list-item__content-line">
+                <span class="list-item__content-line-heading">Job Position: </span>
+                <span class="user-item__job">@GetValue(Model?.Profile?.JobPosition)</span>
+            </p>
+            <p class="list-item__content-line">
+                <span class="list-item__content-line-heading">Registered on </span>
+                <span class="user-item__registered-on">@Model?.CreatedOn</span>
+                <span class="list-item__content-line-heading"> By </span>
+                <span class="user-item__registered-by">
+                    @DomainUserHelper.GetUserInfoString(Model?.CreatedBy)
+                </span>
+            </p>
+            <p class="list-item__content-line">
+                <span class="list-item__content-line-heading">Last updated on </span>
+                <span class="user-item__last-updated-on">@Model?.LastUpdatedOn</span>
+            </p>
+            <p class="list-item__content-line">
+                <span class="list-item__content-line-heading">Ready for display: </span>
+                <span class="user-item__ready">@(Model.Profile.IsReadyForDisplay ? "Yes" : "No")</span>
+            </p>
+            <p class="list-item__content-line">
+                <span class="list-item__content-line-heading">Displayed on home page: </span>
+                <span class="user-item__displayed">@(Model.Profile.DisplayAsTeamMember ? "Yes" : "No")</span>
+            </p>
+        </div>
+    </div>
+    @if (isAdmin)
+    {
+        <div class="list-item__footer panel-footer">
+            @if (isManagePage)
+            {
+                <form method="post" class="user-item__form" asp-route-username="@Model?.Identity?.UserName">
+                    <div class="form-check user-item__checkbox">
+                        <input asp-for="Profile.DisplayAsTeamMember" name="isDisplayed" class="user-item__is-displayed form-check-input" />
+                        <label asp-for="Profile.DisplayAsTeamMember" class="user-item__checkbox-label">Display as Team Member</label>
+                    </div>
+                    <button type="submit" class="user-item__update button button--size-sm" asp-page-handler="UpdateDisplayStatus">
+                        Update
+                    </button>
+                    <button type="submit" asp-page-handler="Delete" class="user-item__delete button button--size-sm"
+                            onclick="return confirm('Are you sure you want to proceed?');">
+                        Delete
+                    </button>
+                </form>
+            }
+            else
+            {
+                <a asp-page="/users/manage" asp-route-userName="@Model?.Identity?.UserName" class="button button--size-sm">Manage</a>
+            }
+        </div>
+    }
+</div>
+
+@functions
+{
+string GetValue(string stringObject)
+{
+    return !string.IsNullOrWhiteSpace(stringObject) ? stringObject : "--NotSet--";
+}
+}

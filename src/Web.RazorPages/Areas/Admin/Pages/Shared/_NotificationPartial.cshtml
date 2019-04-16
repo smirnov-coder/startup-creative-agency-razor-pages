@@ -1,0 +1,10 @@
+﻿@model OperationDetails
+@{
+    string colorClass = Model.Status == OperationStatus.Success ? "alert-success" : "alert-danger";
+}
+<div class="notification alert alert-dismissible fade in @colorClass">
+    <button class="close" type="button" data-dismiss="alert">
+        <span>&times;</span>
+    </button>
+    @Model.Message
+</div>

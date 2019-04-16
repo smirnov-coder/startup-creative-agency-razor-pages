@@ -1,0 +1,51 @@
+﻿@model IList<Testimonial>
+
+@if (Model != null && Model.Any())
+{
+    @foreach (var testimonial in Model)
+    {
+        <div class="list-item testimonial-item testimonial-list__item panel panel-default">
+            <div class="list-item__header panel-heading">
+                Testimonial, ID: <span class="testimonial-item__id">@testimonial?.Id</span>
+            </div>
+            <div class="testimonial-item__info panel-body">
+                <p class="list-item__content-line">
+                    <span class="list-item__content-line-heading">Author: </span>
+                    <span class="testimonial-item__author">@testimonial?.Author</span>
+                </p>
+                <p class="list-item__content-line">
+                    <span class="list-item__content-line-heading">Company: </span>
+                    <span class="testimonial-item__company">@testimonial?.Company</span>
+                </p>
+                <p class="list-item__content-line">
+                    <span class="list-item__content-line-heading">Text: </span>
+                    <span class="testimonial-item__text">@testimonial?.Text</span>
+                </p>
+                <p class="list-item__content-line">
+                    <span class="list-item__content-line-heading">Created on </span>
+                    <span class="testimonial-item__created-on">@testimonial?.CreatedOn</span>
+                    <span class="list-item__content-line-heading"> By </span>
+                    <span class="testimonial-item__created-by">
+                        @DomainUserHelper.GetUserInfoString(testimonial?.CreatedBy)
+                    </span>
+                </p>
+                <p class="list-item__content-line">
+                    <span class="list-item__content-line-heading">Last updated on </span>
+                    <span class="testimonial-item__last-updated-on">@testimonial?.LastUpdatedOn</span>
+                    <span class="list-item__content-line-heading"> By </span>
+                    <span class="testimonial-item__last-updated-by">
+                        @DomainUserHelper.GetUserInfoString(testimonial?.LastUpdatedBy)
+                    </span>
+                </p>
+            </div>
+            <div class="list-item__footer panel-footer">
+                <form method="post" asp-page-handler="Delete" asp-route-id="@testimonial?.Id" class="testimonial-item__form">
+                    <a asp-page="/testimonials/edit" asp-route-id="@testimonial?.Id" 
+                        class="testimonial-item__edit button button--size-sm">Edit</a>
+                    <button type="submit" class="testimonial-item__delete button button--size-sm" 
+                        onclick="return confirm('Are you sure you want to proceed?');">Delete</button>
+                </form>
+            </div>
+        </div>
+    }
+}

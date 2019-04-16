@@ -1,0 +1,24 @@
+/// <reference path="../../../styles/index/index" />
+
+.about-section {
+    background-color: $section-optional-bg-color;
+
+    &__header {
+        margin: 0;
+    }
+
+    &__content {
+        margin-top: $content-margin;
+    }
+
+    &__text {
+        margin: {
+            top: 0;
+            bottom: 0;
+        }
+    }
+
+    &__carousel {
+        margin-top: $content-margin;
+    }
+}

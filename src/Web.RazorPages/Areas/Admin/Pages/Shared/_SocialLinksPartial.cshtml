@@ -1,0 +1,25 @@
+﻿@model IList<SocialLinkViewModel>
+
+<div class="list-item contact-item profile__social-links panel panel-default">
+    <div class="list-item__header panel-heading">
+        <span class="contact-item__name">Social Links</span>
+    </div>
+    <div class="contact-item__content panel-body">
+        @if (Model != null && Model.Any())
+        {
+            for (int index = 0; index < Model.Count; index++)
+            {
+                <div class="contact-item__line form-group">
+                    <input asp-for="@Model[index].NetworkName" type="hidden" />
+                    <label asp-for="@Model[index].Url" class="contact-item__label control-label col-sm-1">
+                        @Model[index].NetworkName
+                    </label>
+                    <div class="col-sm-11">
+                        <input asp-for="@Model[index].Url" class="contact-item__text-input form-control" />
+                        <span asp-validation-for="@Model[index].Url"></span>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>

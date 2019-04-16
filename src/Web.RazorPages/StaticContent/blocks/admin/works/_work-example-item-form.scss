@@ -1,0 +1,61 @@
+/// <reference path="../../../styles/admin/admin" />
+
+.work-example-item-form {
+    padding: 0;
+
+    &__line {
+        margin: 0 0 15px 0;
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+
+    &__description {
+        resize: vertical;
+        min-height: $text-area-min-height;
+    }
+
+    &__img {
+        padding: 5px;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: scale-down;
+        object-position: center;
+
+        &--hidden {
+            padding: 0;
+            visibility: hidden;
+
+            &::after {
+                font-family: "FontAwesome";
+                content: "\f03e"; // FontAwesome 4.7.x Picture-O Icon
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                visibility: visible;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: $secondary-color;
+                font-size: px-to-rem($work-example-item-height * 0.6);
+            }
+        }
+
+        &-holder {
+            position: relative;
+            display: block;
+            height: $work-example-item-height;
+            width: $work-example-item-width;
+            overflow: hidden;
+            background-color: $light-grey-color;
+        }
+    }
+
+    &__submit {
+        margin: 15px 0 0 0;
+    }
+}

@@ -1,0 +1,46 @@
+/// <reference path="../../../styles/index/index" />
+
+.service {
+    text-align: center;
+
+    &__icon {
+        margin: 0 auto;
+        padding: 0;
+        @include circle($service-icon-size);
+        border: 2px solid $light-grey-color;
+        font-size: $service-icon-font-size;
+        line-height: $service-icon-size - 5px;
+        color: $accent-color;
+        background-color: transparent;
+        transition: all 0.2s ease;
+
+        &:hover {
+            color: $white-color;
+            background-color: $accent-color;
+        }
+    }
+
+    &__caption {
+        margin: $gutter-width 0 0 0;
+        padding: 0;
+        @include font(
+            $family: $heading-font-family,
+            $size: px-to-rem(14px),
+            $weight: map-get($font-weights, 'semi-bold'),
+            $color: $primary-color
+        );
+        text-transform: uppercase;
+    }
+
+    &__description {
+        margin: 25px 0 0 0;
+        padding: 0;
+        @include font(
+            $family: $text-font-family,
+            $size: px-to-rem(14px),
+            $weight: map-get($font-weights, 'normal'),
+            $line-height: $large-line-height,
+            $color: $primary-color
+        );
+    }
+}

@@ -1,0 +1,40 @@
+﻿@model BrandViewModel
+
+<div class="brand-item-form">
+    <form method="post" enctype="multipart/form-data">
+        <input asp-for="Id" class="brand-item-form__id" />
+        <div class="brand-item-form__line form-group">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" class="brand-item-form__name form-control" />
+            <span asp-validation-for="Name"></span>
+        </div>
+        <div class="brand-item-form__line form-group">
+            <label asp-for="Image"></label>
+            <div class="custom-file-input input-group">
+                <span class="input-group-btn">
+                    <label class="btn btn-default">
+                        Browse<input asp-for="Image" class="custom-file-input__upload brand-item-form__upload">
+                    </label>
+                </span>
+                <input type="text" class="form-control custom-file-input__text custom-file-input__text--right" readonly />
+            </div>
+            <span asp-validation-for="Image"></span>
+        </div>
+        <div class="brand-item-form__line form-group">
+            <label asp-for="ImagePath"></label>
+            <input asp-for="ImagePath" type="hidden" class="brand-item-form__img-path" />
+            @{
+                string imageUrl = Url.Content(Model?.ImagePath);
+                string hiddenClass = "brand-item-form__img--hidden";
+                string description = string.IsNullOrWhiteSpace(Model.Name) ? "NO IMAGE" : Model.Name;
+            }
+            <div class="brand-item-form__img-holder">
+                <img src="@imageUrl" alt="@description" title="@description"
+                     class="brand-item-form__img @(string.IsNullOrWhiteSpace(imageUrl) ? hiddenClass : "thumbnail")" />
+            </div>
+        </div>
+        <div class="brand-item-form__line">
+            <button type="submit" class="brand-item-form__submit button button--size-sm">Submit</button>
+        </div>
+    </form>
+</div>

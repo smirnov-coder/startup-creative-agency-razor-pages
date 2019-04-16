@@ -1,0 +1,13 @@
+/// <reference path="../../../styles/index/index" />
+
+.clients-section {
+    background-color: $section-optional-bg-color;
+
+    &__brands {
+        margin-top: 0;
+    }
+
+    &__testimonials {
+        margin-top: $content-margin;
+    }
+}

@@ -1,0 +1,50 @@
+﻿@model BlogPostViewModel
+
+<div class="blog-post-item-form">
+    <form method="post" enctype="multipart/form-data">
+        <input asp-for="Id" class="blog-post-item-form__id" />
+        <div class="blog-post-item-form__line form-group">
+            <label asp-for="Title"></label>
+            <input asp-for="Title" class="blog-post-item-form__title form-control" />
+            <span asp-validation-for="Title"></span>
+        </div>
+        <div class="blog-post-item-form__line form-group">
+            <label asp-for="Category"></label>
+            <input asp-for="Category" class="blog-post-item-form__category form-control" />
+            <span asp-validation-for="Category"></span>
+        </div>
+        <div class="blog-post-item-form__line form-group">
+            <label asp-for="Content"></label>
+            <textarea asp-for="Content" class="blog-post-item-form__content form-control"></textarea>
+            <span asp-validation-for="Content"></span>
+        </div>
+        <div class="blog-post-item-form__line form-group">
+            <label asp-for="Image"></label>
+            <div class="custom-file-input input-group">
+                <span class="input-group-btn">
+                    <label class="btn btn-default">
+                        Browse<input asp-for="Image" class="custom-file-input__upload blog-post-item-form__upload">
+                    </label>
+                </span>
+                <input type="text" class="form-control custom-file-input__text custom-file-input__text--right" readonly />
+            </div>
+            <span asp-validation-for="Image"></span>
+        </div>
+        <div class="blog-post-item-form__line form-group">
+            <label asp-for="ImagePath"></label>
+            <input asp-for="ImagePath" type="hidden" class="blog-post-item-form__img-path" />
+            @{
+                string imageUrl = Url.Content(Model?.ImagePath);
+                string hiddenClass = "blog-post-item-form__img--hidden";
+                string description = string.IsNullOrWhiteSpace(Model.Title) ? "NO IMAGE" : Model.Title;
+            }
+            <div class="blog-post-item-form__img-holder">
+                <img src="@imageUrl" alt="@description" title="@description"
+                     class="blog-post-item-form__img @(string.IsNullOrWhiteSpace(imageUrl) ? hiddenClass : "thumbnail")" />
+            </div>
+        </div>
+        <div class="blog-post-item-form__line">
+            <button type="submit" class="blog-post-item-form__submit button button--size-sm">Submit</button>
+        </div>
+    </form>
+</div>

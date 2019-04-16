@@ -1,0 +1,28 @@
+/// <reference path="../../../styles/index/index" />
+
+.testimonial {
+    text-align: center;
+
+    &__text {
+        margin: 0;
+        padding: 0;
+        @include font(
+            $family: $text-font-family,
+            $size: px-to-rem(18px),
+            $weight: map-get($font-weights, 'normal'),
+            $color: $primary-color
+        );
+        font-style: italic;
+    }
+
+    &__author {
+        margin: $gutter-width 0 0 0;
+        padding: 0;
+        @include font(
+            $family: $text-font-family,
+            $size: px-to-rem(20px),
+            $weight: map-get($font-weights, 'normal'),
+            $color: $primary-color
+        );
+    }
+}

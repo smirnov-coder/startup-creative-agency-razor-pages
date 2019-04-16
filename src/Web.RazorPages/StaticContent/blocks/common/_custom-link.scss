@@ -1,0 +1,24 @@
+/// <reference path="../../styles/common/common" />
+
+.custom-link {
+    color: $primary-color;
+    border: none;
+    background: none;
+    padding: 0;
+
+    &:hover, &:focus {
+        text-decoration: none;
+        color: $accent-color !important;
+    }
+
+    &--color {
+
+        &-white {
+            color: $white-color;
+        }
+        
+        &-secondary {
+            color: $secondary-color;
+        }
+    }
+}

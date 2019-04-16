@@ -1,0 +1,44 @@
+﻿@model ContactInfoViewModel
+
+@if (Model != null)
+{
+    <div class="list-item contact-item contact-list__item panel panel-default">
+        <div class="list-item__header panel-heading">
+            <span class="contact-item__name">@Model.Name</span>
+        </div>
+        <div class="contact-item__content panel-body">
+            <input asp-for="Name" />
+            <div class="contact-item__line form-group">
+                <label asp-for="Caption" class="contact-item__label control-label col-sm-1"></label>
+                <div class="col-sm-10">
+                    <input asp-for="Caption" class="contact-item__text-input form-control" />
+                    <span asp-validation-for="Caption"></span>
+                </div>
+            </div>
+            @if (Model.Values != null && Model.Values.Any())
+            {
+                for (int index = 0; index < Model.Values.Count; index++)
+                {
+                    <div class="contact-item__line form-group">
+                        <label asp-for="Values[index].Value" class="contact-item__label control-label col-sm-1">
+                            @Model.Name #@(index + 1)
+                        </label>
+                        <div class="col-sm-10">
+                            <input asp-for="Values[index].Value" class="contact-item__text-input form-control" />
+                            <span asp-validation-for="Values[index].Value"></span>
+                        </div>
+                        @if (index == Model.Values.Count - 1)
+                        {
+                            <div class="contact-item__line-delete col-sm-1">
+                                <button type="button" class="contact-item__delete custom-link">Delete</button>
+                            </div>
+                        }
+                    </div>
+                }
+            }
+        </div>
+        <div class="list-item__footer panel-footer">
+            <button type="button" class="contact-item__add button button--size-sm">Add @Model.Name</button>
+        </div>
+    </div>
+}

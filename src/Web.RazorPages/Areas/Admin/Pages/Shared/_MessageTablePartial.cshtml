@@ -1,0 +1,20 @@
+﻿@model IList<Message>
+
+@if (Model != null && Model.Any())
+{
+    @for (int index = 0; index < Model.Count; index++)
+    {
+        <tr class="message-row @(Model[index].IsRead ? "" : "message-row--unread")">
+            <td>@(index + 1)</td>
+            <td>
+                <input asp-for="@Model[index].Id" type="hidden" />
+                <input asp-for="@Model[index].IsRead" class="message-row__is-read" />
+            </td>
+            <td class="message-row__from">@($"{Model[index]?.Name}, {Model[index]?.Company} ({Model[index]?.Email})")</td>
+            <td class="message-row__subject">@Model[index]?.Subject</td>
+            <td class="message-row__text">@Model[index]?.Text</td>
+            <td class="text-nowrap">@Model[index]?.CreatedOn</td>
+            <td><a asp-page="/message" asp-route-id="@Model[index].Id" class="custom-link">Read</a></td>
+        </tr>
+    }
+}

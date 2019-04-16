@@ -1,0 +1,62 @@
+﻿@model MessageViewModel 
+
+<section class="contact-form contact-section__contact col-sm-8">
+    <h3 class="sr-only">Send Us a Message</h3>
+    <div class="row">
+        <form id="contactForm" asp-controller="Messages" asp-action="SaveAsync" method="post">
+            <div class="contact-form__line col-md-6">
+                <label asp-for="Name" class="sr-only">Name</label>
+                <input asp-for="Name" class="contact-form__text-input" placeholder="Your Name" />
+                <span asp-validation-for="Name"></span>
+            </div>
+            <div class="contact-form__line col-md-6">
+                <label asp-for="Email" class="sr-only">E-mail</label>
+                <input asp-for="Email" class="contact-form__text-input" placeholder="Your E-mail" />
+                <span asp-validation-for="Email"></span>
+            </div>
+            <div class="contact-form__line col-md-6">
+                <label asp-for="Subject" class="sr-only">Subject</label>
+                <input asp-for="Subject" class="contact-form__text-input" placeholder="Your Subject" />
+                <span asp-validation-for="Subject"></span>
+            </div>
+            <div class="contact-form__line col-md-6">
+                <label asp-for="Company" class="sr-only">Company Name</label>
+                <input asp-for="Company" class="contact-form__text-input" placeholder="Your Company Name" />
+                <span asp-validation-for="Company"></span>
+            </div>
+            <div class="contact-form__line col-xs-12">
+                <label asp-for="Text" class="sr-only">Message</label>
+                <textarea asp-for="Text" class="contact-form__text-area" rows="5" placeholder="Write Your Message"></textarea>
+                <span asp-validation-for="Text"></span>
+            </div>
+            <div class="contact-form__line col-xs-12">
+                <button type="submit" class="button contact-form__button">Send Message</button>
+                <span class="contact-form__note">
+                    We’ll contact you as soon as possible. We don’t reply on Monday.
+                </span>
+            </div>
+        </form>
+    </div>
+    <div class="contact-form__overlay">
+        <i class="contact-form__loader fa fa-spinner fa-pulse fa-3x"></i>
+    </div>
+    @* Contact Form Modal *@
+    <div class="modal fade" tabindex="-1" id="contact-form-modal">
+        <div class="contact-form-modal custom-modal">
+            <div class="modal-dialog custom-modal__inner">
+                <div class="modal-content custom-modal__content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span>&times;</span>
+                        </button>
+                        <i class="contact-form-modal__status-icon"></i>
+                        <span class="contact-form-modal__status-text"></span>
+                    </div>
+                    <div class="modal-body">
+                        <p class="contact-form-modal__message"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

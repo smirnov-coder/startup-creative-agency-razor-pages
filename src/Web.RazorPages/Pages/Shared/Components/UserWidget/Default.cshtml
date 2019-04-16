@@ -1,0 +1,18 @@
+﻿@model string
+@{
+    string imageUrl = Url.Content(Model);
+    string hiddenClass = "user-widget__img--hidden";
+}
+<div class="user-widget">
+    <div class="user-widget__img-holder">
+        <img src="@imageUrl" class="user-widget__img @(string.IsNullOrWhiteSpace(imageUrl) ? hiddenClass : null)" 
+             alt="@User?.Identity?.Name" />
+    </div>
+    <div class="user-widget__info">
+        <div class="user-widget__user-name">@User?.Identity?.Name</div>
+        <form asp-area="Account" asp-page="/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })" method="post"
+              class="form-inline">
+            <button class="user-widget__logout custom-link custom-link--color-white">Logout</button>
+        </form>
+    </div>
+</div>
