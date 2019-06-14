@@ -29,6 +29,7 @@
   - [Bootstrap 3](https://getbootstrap.com/docs/3.4/)
   - [jQuery](https://jquery.com/)
   - [jQuery Validation](https://jqueryvalidation.org/)
+  - [jQuery Validation Unobtrusive](https://github.com/aspnet/jquery-validation-unobtrusive/)
   - [OwlCarousel 2](https://owlcarousel2.github.io/OwlCarousel2/)
   - [FontAwesome 4](https://fontawesome.com/v4.7.0/)
 
