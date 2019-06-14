@@ -26,7 +26,7 @@ module.exports = {
                 loader: "babel-loader?cacheDirectory=true"
             },
             {
-                test: /\.(scss|sass)$/,
+                test: /\.s(c|a)ss$/,
                 exclude: /node_modules/,
                 use: [
                     { loader: "style-loader"},
@@ -48,7 +48,7 @@ module.exports = {
                 }
             },
             {
-                test: /\.(woff|woff2|ttf|otf|eot)$/,
+                test: /\.(woff2?|ttf|otf|eot)$/,
                 use: {
                     loader: "file-loader",
                     options: { name: "fonts/[name].[ext]" }

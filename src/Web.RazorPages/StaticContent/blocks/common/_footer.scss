@@ -35,4 +35,25 @@
             text-align: center;
         }
     }
+
+    &__link {
+        margin: 0;
+        padding: 0;
+        @include font(
+            $family: $text-font-family,
+            $size: px-to-rem(12px),
+            $weight: map-get($font-weights, 'normal'),
+            $color: $white-color
+        );
+        text-transform: uppercase;
+
+        &:hover {
+            color: $white-color;
+            text-decoration: underline;
+        }
+
+        &:visited {
+            color: $white-color;
+        }
+    }
 }

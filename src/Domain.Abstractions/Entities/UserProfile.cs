@@ -167,7 +167,7 @@ namespace StartupCreativeAgency.Domain.Entities
                 else
                 {
                     throw new InvalidOperationException($"Unable to mark user for display as team member. Not all " +
-                        $"required data has beed provided. Please check values for next fields: '{nameof(FirstName)}', " +
+                        $"required data has been provided. Please check values for the next fields: '{nameof(FirstName)}', " +
                         $"'{nameof(LastName)}', '{nameof(JobPosition)}', '{nameof(PhotoFilePath)}', '{nameof(SocialLinks)}'.");
                 }
             }

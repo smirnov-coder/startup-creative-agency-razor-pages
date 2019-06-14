@@ -1,7 +1,10 @@
 ﻿@model PersonalInfoViewModel
+@using System.ComponentModel.DataAnnotations
 @{ 
     string photoUrl = Url.Content(Model?.PhotoFilePath);
     string hiddenClass = "personal-info__photo--hidden";
+    var fileExtensions = new FileExtensionsAttribute();
+    string errorMessage = fileExtensions.FormatErrorMessage(Html.DisplayNameFor(x => x.Image));
 }
 <div class="list-item personal-info profile__personal-info panel panel-default">
     <div class="list-item__header panel-heading">
@@ -47,13 +50,17 @@
                 <label asp-for="Image" class="list-item__content-line-heading control-label col-sm-2"></label>
                 <div class="col-sm-10">
                     <div class="custom-file-input input-group">
-                        <input type="text" class="form-control custom-file-input__text" readonly />
+                        <input type="text" class="form-control custom-file-input__text" readonly id="FileName" name="FileName"
+                               data-val="true" 
+                               data-val-fileextensions="@errorMessage" 
+                               data-val-fileextensions-extensions="@fileExtensions.Extensions" />
                         <span class="input-group-btn">
                             <label class="btn btn-default">
                                 Browse<input asp-for="Image" class="custom-file-input__upload personal-info__upload" >
                             </label>
                         </span>
                     </div>
+                    <span class="field-validation-valid" data-valmsg-for="FileName" data-valmsg-replace="true"></span>
                     <span asp-validation-for="Image"></span>
                 </div>
             </div>

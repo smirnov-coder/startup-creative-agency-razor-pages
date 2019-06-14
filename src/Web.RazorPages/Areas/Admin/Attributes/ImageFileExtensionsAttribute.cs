@@ -16,18 +16,26 @@ namespace StartupCreativeAgency.Web.RazorPages.Areas.Admin.Attributes
     {
         private FileExtensionsAttribute _extensionsAttribute = new FileExtensionsAttribute();
 
-        public override bool IsValid(object value)
+        public override bool RequiresValidationContext => true;
+
+        protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
             if (value != null && value is IFormFile)
             {
                 var formFile = value as IFormFile;
                 if (!_extensionsAttribute.IsValid(formFile.FileName))
                 {
-                    ErrorMessage = _extensionsAttribute.ErrorMessage;
-                    return false;
+                    if (string.IsNullOrWhiteSpace(ErrorMessage))
+                    {
+                        string name = string.IsNullOrWhiteSpace(validationContext.DisplayName)
+                            ? validationContext.MemberName
+                            : validationContext.DisplayName;
+                        ErrorMessage = _extensionsAttribute.FormatErrorMessage(name);
+                    }
+                    return new ValidationResult(ErrorMessage);
                 }
             }
-            return true;
+            return ValidationResult.Success;
         }
     }
 }

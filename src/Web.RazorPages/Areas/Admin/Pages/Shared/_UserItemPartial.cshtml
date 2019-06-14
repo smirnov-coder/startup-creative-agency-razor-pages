@@ -13,7 +13,7 @@
     </div>
     <div class="list-item__content panel-body">
         <div class="user-item__photo-holder">
-            <img src="@photoUrl" alt="@DomainUserHelper.GetFullName(Model)" 
+            <img src="@photoUrl" alt="@DomainUserHelper.GetFullName(Model)"
                  class="user-item__photo @(string.IsNullOrWhiteSpace(photoUrl) ? hiddenClass : null)" />
         </div>
         <div class="user-item__info">
@@ -64,10 +64,13 @@
                     <button type="submit" class="user-item__update button button--size-sm" asp-page-handler="UpdateDisplayStatus">
                         Update
                     </button>
-                    <button type="submit" asp-page-handler="Delete" class="user-item__delete button button--size-sm"
-                            onclick="return confirm('Are you sure you want to proceed?');">
-                        Delete
-                    </button>
+                    @if (Model.Identity.UserName != User.Identity.Name)
+                    {
+                        <button type="submit" asp-page-handler="Delete" class="user-item__delete button button--size-sm"
+                                onclick="return confirm('Are you sure you want to proceed?');">
+                            Delete
+                        </button>
+                    }
                 </form>
             }
             else
@@ -78,10 +81,9 @@
     }
 </div>
 
-@functions
-{
-string GetValue(string stringObject)
-{
-    return !string.IsNullOrWhiteSpace(stringObject) ? stringObject : "--NotSet--";
-}
+@functions {
+    string GetValue(string stringObject)
+    {
+        return !string.IsNullOrWhiteSpace(stringObject) ? stringObject : "--NotSet--";
+    }
 }

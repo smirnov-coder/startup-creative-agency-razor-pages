@@ -1,5 +1,5 @@
 {
-  "name": "startup-creative-agency",
+  "name": "startup-creative-agency-razor-pages",
   "version": "1.0.0",
   "private": true,
   "devDependencies": {
@@ -41,9 +41,9 @@
     "webpack-hot-middleware": "^2.24.3"
   },
   "scripts": {
-    "dev": "webpack --config webpack.development.config.js --progress --colors",
-    "lib": "webpack --config webpack.vendor.config.js --progress --colors",
-    "build": "webpack --config webpack.production.config.js --progress --colors"
+    "dev": "webpack --config webpack.development.config.js --colors",
+    "lib": "webpack --config webpack.vendor.config.js --colors",
+    "build": "webpack --config webpack.production.config.js --colors"
   },
   "browserslist": [
     "last 5 versions",

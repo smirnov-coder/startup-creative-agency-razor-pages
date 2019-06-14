@@ -93,8 +93,6 @@ namespace StartupCreativeAgency.Web.RazorPages
             services.AddResponseCompression(options =>
             {
                 options.EnableForHttps = true;
-                //options.Providers.Add<BrotliCompressionProvider>();
-                //options.Providers.Add<GzipCompressionProvider>();
                 // Оптимизация шрифтов
                 // https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/webfont-optimization
                 options.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(new[] 
@@ -128,17 +126,22 @@ namespace StartupCreativeAgency.Web.RazorPages
                 app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions
                 {
                     ConfigFile = "webpack.development.config.js",
-                    HotModuleReplacement = true
+                    HotModuleReplacement = true,
+                    HotModuleReplacementClientOptions = new Dictionary<string, string>
+                    {
+                        ["timeout"] = "60000",
+                        ["reload"] = "true"
+                    }
                 });
             }
-            else
+            if (env.IsProduction())
             {
                 app.UseExceptionHandler("/Error");
                 app.UseHsts();
                 app.UseResponseCompression();
+                app.UseHttpsRedirection();
             }
 
-            app.UseHttpsRedirection();
             app.UseStatusCodePagesWithReExecute("/{0}");
             
             // Для обслуживания favicon.

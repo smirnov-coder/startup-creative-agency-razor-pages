@@ -3,7 +3,7 @@
 var target = Argument("target", "Default");
 var configuration = Argument("Configuration", "Release");
 
-string solutionFilePath = "../../StartupCreativeAgency.sln";
+string solutionFilePath = "../../StartupCreativeAgency.RazorPages.sln";
 
 Task("Clean")
 	.Does(() =>
@@ -97,7 +97,7 @@ Task("Build-And-Test")
 	.IsDependentOn("Test");
 
 Task("Build-And-Publish")
-	.IsDependentOn("Build-And-Test")
+	.IsDependentOn("Solution-Build")
 	.IsDependentOn("Publish");
 
 Task("Default")

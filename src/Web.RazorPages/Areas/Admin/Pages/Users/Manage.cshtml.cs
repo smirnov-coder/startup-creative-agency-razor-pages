@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using StartupCreativeAgency.Domain.Abstractions.Exceptions;
 using StartupCreativeAgency.Domain.Abstractions.Services;
 using StartupCreativeAgency.Domain.Entities;
 using StartupCreativeAgency.Web.RazorPages.Infrastructure;
@@ -31,9 +32,16 @@ namespace StartupCreativeAgency.Web.RazorPages.Areas.Admin.Pages.Users
         {
             if (ModelState.IsValid)
             {
-                await _userService.UpdateUserDisplayStatusAsync(userName, isDisplayed);
-                this.SetDetails(OperationStatus.Success, $"Display status for user '@{userName}' " +
-                    $"has been updated successfully.");
+                try
+                {
+                    await _userService.UpdateUserDisplayStatusAsync(userName, isDisplayed);
+                    this.SetDetails(OperationStatus.Success, $"Display status for user '@{userName}' " +
+                        $"has been updated successfully.");
+                }
+                catch (DomainServiceException ex) when (ex.InnerException is InvalidOperationException)
+                {
+                    this.SetDetails(OperationStatus.Error, ex.InnerException.Message);
+                }
             }
             else
             {
@@ -49,13 +57,13 @@ namespace StartupCreativeAgency.Web.RazorPages.Areas.Admin.Pages.Users
             {
                 await _userService.DeleteUserAsync(userName);
                 this.SetDetails(OperationStatus.Success, $"The entity of type '{typeof(DomainUser)}' with value '@{userName}' " +
-                    $"for '{nameof(Domain.Entities.DomainUser.Identity.UserName)}' deleted successfully.");
+                    $"for '{nameof(IUserIdentity.UserName)}' deleted successfully.");
                 return RedirectToPage(USERS_URL);
             }
             else
             {
                 this.SetDetails(OperationStatus.Error, $"Unable to delete entity of type '{typeof(DomainUser)}' with value '@{userName}' " +
-                    $"for '{nameof(Domain.Entities.DomainUser.Identity.UserName)}'. Reload the page and try again.");
+                    $"for '{nameof(IUserIdentity.UserName)}'. Reload the page and try again.");
                 return RedirectToPage(MANAGE_URL, new { userName });
             }
         }

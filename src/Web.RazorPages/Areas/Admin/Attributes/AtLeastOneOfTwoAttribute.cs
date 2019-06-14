@@ -36,9 +36,7 @@ namespace StartupCreativeAgency.Web.RazorPages.Areas.Admin.Attributes
 
         private bool IsObjectNullOrEmptyString(object value)
         {
-            if (value == null || (value.GetType() == typeof(string) && string.IsNullOrWhiteSpace(value as string)))
-                return true;
-            return false;
+            return value == null || (value.GetType() == typeof(string) && string.IsNullOrWhiteSpace(value as string));
         }
     }
 }

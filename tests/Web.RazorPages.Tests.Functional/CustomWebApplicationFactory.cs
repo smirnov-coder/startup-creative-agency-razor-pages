@@ -92,7 +92,7 @@ namespace StartupCreativeAgency.Web.RazorPages.Tests.Functional
 
         protected override void ConfigureWebHost(IWebHostBuilder builder)
         {
-            builder.UseEnvironment("Production");
+            builder.UseEnvironment("Test");
             // Метод будет вызван до вызова ConfigureServices класса Startup.
             builder.ConfigureServices(services =>
             {

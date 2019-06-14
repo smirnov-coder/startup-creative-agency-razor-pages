@@ -1,5 +1,9 @@
 ﻿@model BrandViewModel
-
+@using System.ComponentModel.DataAnnotations
+@{
+    var fileExtensions = new FileExtensionsAttribute();
+    string errorMessage = fileExtensions.FormatErrorMessage(Html.DisplayNameFor(x => x.Image));
+}
 <div class="brand-item-form">
     <form method="post" enctype="multipart/form-data">
         <input asp-for="Id" class="brand-item-form__id" />
@@ -16,8 +20,15 @@
                         Browse<input asp-for="Image" class="custom-file-input__upload brand-item-form__upload">
                     </label>
                 </span>
-                <input type="text" class="form-control custom-file-input__text custom-file-input__text--right" readonly />
+                <input type="text" class="form-control custom-file-input__text custom-file-input__text--right" readonly
+                       id="FileName" name="FileName"
+                       data-val="true"
+                       data-val-fileextensions="@errorMessage"
+                       data-val-fileextensions-extensions="@fileExtensions.Extensions"
+                       data-val-atleastoneoftwo="The @Html.DisplayNameFor(x => x.Image) must be provided."
+                       data-val-atleastoneoftwo-other="@Html.IdFor(x => x.ImagePath)" />
             </div>
+            <span class="field-validation-valid" data-valmsg-for="FileName" data-valmsg-replace="true"></span>
             <span asp-validation-for="Image"></span>
         </div>
         <div class="brand-item-form__line form-group">

@@ -17,6 +17,7 @@ import "../styles/admin/admin.scss";
 // в файле конфигурации webpack.
 import "../lib/bootstrap-customized/js/bootstrap"
 import "jquery-validation/dist/jquery.validate";
+import "jquery-validation/dist/additional-methods";
 import "jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive";
 
 //
@@ -27,8 +28,10 @@ import blogPostItem from "../blocks/admin/blog/blog-post-item";
 import contactItem from "../blocks/admin/contacts/contact-item";
 import messageRow from "../blocks/admin/messages/message-row";
 import customFileInput from "../blocks/admin/common/custom-file-input";
+import addCustomValidation from "../blocks/common/validation";
 
 $(document).ready(function () {
+    addCustomValidation();
     workExampleItem();
     blogPostItem();
     contactItem();

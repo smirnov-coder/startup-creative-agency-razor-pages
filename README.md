@@ -1,8 +1,10 @@
 # Веб-сайт креативного агенства "Startup"
 
+## Описание
+
 Сайт состоит из главной страницы, выполненной в виде Landing page, и многостраничной админки, позволяющей изменять содержимое отдельных секций главной страницы.
 
-Дизайн сайта создан на основе бесплатного [PSD-шаблона](https://www.behance.net/gallery/31927243/Startup-Free-Creative-Agency-PSD-Template), найденного на просторах интернета. Вёрстка по методологии БЭМ (CSS) адаптивная для главной страницы и без адаптивности для админки.
+Дизайн сайта создан на основе бесплатного [PSD-шаблона](https://www.behance.net/gallery/31927243/Startup-Free-Creative-Agency-PSD-Template), найденного на просторах интернета. Вёрстка по методологии [БЭМ](https://ru.bem.info/) (CSS) адаптивная для главной страницы и без адаптивности для админки.
 
 Пользователи сайта делятся на 3 категории:
 
@@ -15,19 +17,30 @@
 Используемые при разработке технологии и библиотеки:
 
 - Backend
-  - ASP.NET Core 2.1 Razor Pages + Web API
-  - O/RM Entity Framework Core (+ Proxies)
-  - СУБД SQLite (для упрощения развёртывания)
-  - ASP.NET Core Identity 2.1
-  - xUnit 2.x (для модульного и интеграционного тестирования) + Microsoft TestServer (для функционального тестирования)
-  - Webpack 4.x (+ plugins)
-  - SASS (+ PostCSS)
+  - [ASP.NET Core 2.1 Razor Pages](https://docs.microsoft.com/en-us/aspnet/core/razor-pages/)
+  - [ASP.NET Core 2.1 Identity](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/identity/)
+  - [O/RM Entity Framework Core](https://docs.microsoft.com/en-us/ef/)
+  - [SQLite](https://www.sqlite.org/) (для упрощения развёртывания)
+  - [xUnit](https://xunit.net/) + [Microsoft TestServer](https://docs.microsoft.com/en-us/aspnet/core/test/integration-tests/) (модульное, интеграционное, функциональное тестирование)
+  - [Webpack](https://webpack.js.org/)
+  - [SASS](https://sass-lang.com/) (+ [PostCSS](https://postcss.org/))
 
 - Frontend
-  - Twitter Bootstrap 3.x
-  - jQuery 3.x
-  - OwlCarousel 2.3.4
-  - FontAwesome 4.7.2
+  - [Bootstrap 3](https://getbootstrap.com/docs/3.4/)
+  - [jQuery](https://jquery.com/)
+  - [jQuery Validation](https://jqueryvalidation.org/)
+  - [OwlCarousel 2](https://owlcarousel2.github.io/OwlCarousel2/)
+  - [FontAwesome 4](https://fontawesome.com/v4.7.0/)
+
+## Скриншоты
+
+### Главная страница
+
+![Home page](/../screenshots/home-page.png)
+
+### Админка
+
+![Admin panel](/../screenshots/admin-panel.png)
 
 Проект предназначен исключительно для демонстрации моих умений и навыков потенциальным работодателям и вряд ли представляет какую-либо практическую ценность из-за значительного упрощения.
 
