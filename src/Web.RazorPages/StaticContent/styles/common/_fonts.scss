@@ -1,9 +1,0 @@
-/// <reference path="mixins" />
-
-// Montserrat
-@include font-face('Montserrat', '../../fonts/Montserrat/Montserrat-SemiBold.ttf', 'semi-bold');
-@include font-face('Montserrat', '../../fonts/Montserrat/Montserrat-Bold.ttf', 'bold');
-
-//Roboto Slab
-@include font-face('Roboto Slab', '../../fonts/Roboto_Slab/RobotoSlab-Regular.ttf', 'normal');
-@include font-face('Roboto Slab', '../../fonts/Roboto_Slab/RobotoSlab-Bold.ttf', 'bold');

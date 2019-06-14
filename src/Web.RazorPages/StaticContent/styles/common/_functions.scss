@@ -1,6 +1,0 @@
-/// <reference path="variables" />
-
-// Переводит пиксели в rem.
-@function px-to-rem($value) {
-    @return (($value / $default-font-size) * 1rem);
-}

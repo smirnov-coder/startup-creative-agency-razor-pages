@@ -1,8 +1,0 @@
-﻿<header class="section-header @ViewData["MixinClass"]?.ToString()">
-    <h2 class="section-header__title">@ViewData["Title"]?.ToString()</h2>
-    <hr class="section-header__separator dash dash--color-grey" />
-    @if (!string.IsNullOrWhiteSpace(ViewData["Subtitle"]?.ToString()))
-    {
-        <h3 class="section-header__subtitle">@ViewData["Subtitle"].ToString()</h3>
-    }
-</header>

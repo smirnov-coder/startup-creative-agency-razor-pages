@@ -1,9 +1,0 @@
-﻿@model IList<DomainUser>
-
-@if (Model != null && Model.Any())
-{
-    @for (int index = 0; index < Model.Count; index++)
-    {
-        <partial name="_UserItemPartial" for="@Model[index]" view-data="ViewData" />
-    }
-}
