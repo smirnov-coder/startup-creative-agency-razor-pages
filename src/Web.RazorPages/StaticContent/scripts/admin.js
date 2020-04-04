@@ -23,12 +23,12 @@ import "jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive";
 //
 // Подключение пользовательских js-файлов.
 //
-import workExampleItem from "../blocks/admin/works/work-example-item";
-import blogPostItem from "../blocks/admin/blog/blog-post-item";
-import contactItem from "../blocks/admin/contacts/contact-item";
-import messageRow from "../blocks/admin/messages/message-row";
-import customFileInput from "../blocks/admin/common/custom-file-input";
-import addCustomValidation from "../blocks/common/validation";
+import workExampleItem from "../bem/admin/works/work-example-item";
+import blogPostItem from "../bem/admin/blog/blog-post-item";
+import contactItem from "../bem/admin/contacts/contact-item";
+import messageRow from "../bem/admin/messages/message-row";
+import customFileInput from "../bem/admin/common/custom-file-input";
+import addCustomValidation from "../bem/common/validation";
 
 $(document).ready(function () {
     addCustomValidation();

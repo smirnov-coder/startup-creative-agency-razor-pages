@@ -24,19 +24,19 @@ import "jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive";
 //
 // Подключение пользовательских js-файлов.
 //
-import customNavbar from "../blocks/index/header/custom-navbar";
-import customNav from "../blocks/index/header/custom-nav";
-import header from "../blocks/index/header/header";
-import teamCarousel from "../blocks/index/about/team-carousel";
-import teamMember from "../blocks/index/about/team-member";
-import gallery from "../blocks/index/works/gallery";
-import { workExamplePreview } from "../blocks/common/work-example-preview";
-import parallaxSection from "../blocks/index/parallax/parallax-section";
-import { blogPostPreview } from "../blocks/common/blog-post-preview";
-import blogPostList from "../blocks/index/blog/blog-post-list";
-import brandsCarousel from "../blocks/index/clients/brands-carousel";
-import testimonialsSlider from "../blocks/index/clients/testimonials-slider";
-import contactForm from "../blocks/index/contact/contact-form";
+import customNavbar from "../bem/index/header/custom-navbar";
+import customNav from "../bem/index/header/custom-nav";
+import header from "../bem/index/header/header";
+import teamCarousel from "../bem/index/about/team-carousel";
+import teamMember from "../bem/index/about/team-member";
+import gallery from "../bem/index/works/gallery";
+import { workExamplePreview } from "../bem/common/work-example-preview";
+import parallaxSection from "../bem/index/parallax/parallax-section";
+import { blogPostPreview } from "../bem/common/blog-post-preview";
+import blogPostList from "../bem/index/blog/blog-post-list";
+import brandsCarousel from "../bem/index/clients/brands-carousel";
+import testimonialsSlider from "../bem/index/clients/testimonials-slider";
+import contactForm from "../bem/index/contact/contact-form";
 
 $(document).ready(() => {
     customNavbar();

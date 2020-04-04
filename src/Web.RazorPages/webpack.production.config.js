@@ -145,7 +145,6 @@ module.exports = {
                 uglifyOptions: {
                     mangle: true,
                     compress: {
-                        warnings: false,
                         pure_getters: true,
                         unsafe: true,
                         unsafe_comps: true,

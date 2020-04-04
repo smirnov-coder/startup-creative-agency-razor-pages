@@ -36,9 +36,12 @@ namespace StartupCreativeAgency.Web.RazorPages
 
         public void ConfigureServices(IServiceCollection services)
         {
-            string connectionString = Configuration.GetConnectionString("DefaultConnection");
-            connectionString = connectionString.Replace("{DataDirectory}",
-                Path.Combine(Environment.ContentRootPath, "Data"));
+            string
+                connectionString = Configuration.GetConnectionString("DefaultConnection"),
+                dataFolder = Path.Combine(Environment.ContentRootPath, "Data");
+            if (!Directory.Exists(dataFolder))
+                Directory.CreateDirectory(dataFolder);
+            connectionString = connectionString.Replace("{DataDirectory}", dataFolder);
 
             services.AddDbContext<ApplicationDbContext>(options =>
             {
@@ -139,9 +142,8 @@ namespace StartupCreativeAgency.Web.RazorPages
                 app.UseExceptionHandler("/Error");
                 app.UseHsts();
                 app.UseResponseCompression();
-                app.UseHttpsRedirection();
             }
-
+            app.UseHttpsRedirection();
             app.UseStatusCodePagesWithReExecute("/{0}");
             
             // Для обслуживания favicon.
